@@ -323,6 +323,10 @@ class Measurement(object):
         if 'flags_definition' in measurement_dict:
             self.flags_definition = measurement_dict['flags_definition']
 
+    def __repr__(self):
+        attrs = ", ".join("{}={}".format(key, value) for key, value in self.__dict__.items())
+        return "Measurement({})".format(attrs)
+
 
 @schema_validated(SCHEMA_PATH / 'metadata-type-schema.yaml')
 class MetadataType(object):
